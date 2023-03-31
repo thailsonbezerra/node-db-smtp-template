@@ -1,4 +1,5 @@
 import AppDataSource from "./database";
+import { sendmail } from "./services/emailService";
 
 (async () => {
     await AppDataSource.initialize();
@@ -8,5 +9,7 @@ import AppDataSource from "./database";
     }
 
     console.log("\nBanco de dados iniciado!");
+
+    await sendmail()
 
 })();
