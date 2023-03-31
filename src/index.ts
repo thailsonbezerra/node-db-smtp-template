@@ -1,4 +1,12 @@
-import config from "./config"
+import AppDataSource from "./database";
 
-console.log('nodejs-sendmail')
-console.log(config)
+(async () => {
+    await AppDataSource.initialize();
+    if (!AppDataSource.isInitialized) {
+        console.log("\nOcorreu um erro na inicialização do banco de dados!");
+        process.exit();
+    }
+
+    console.log("\nBanco de dados iniciado!");
+
+})();
